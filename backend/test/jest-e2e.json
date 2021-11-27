@@ -9,7 +9,7 @@
   "globals": {
     "ts-jest": {
       "astTransformers": {
-        "before": ["./swagger-config.ts"]
+        "before": ["./test/swagger-config.ts"]
       }
     }
   }
