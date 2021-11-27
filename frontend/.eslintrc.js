@@ -43,6 +43,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/no-noninteractive-element-to-interactive-role': 'off',
     'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'global-require': 'off',
     'func-names': 'off',
     'import/no-unresolved': 'off',
     'jest/no-disabled-tests': 'warn',
