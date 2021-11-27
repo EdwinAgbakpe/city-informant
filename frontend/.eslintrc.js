@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'plugin:react/recommended',
@@ -28,6 +29,7 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'import',
+    'jest',
   ],
   rules: {
     'react/react-in-jsx-scope': 'off',
@@ -43,6 +45,11 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'func-names': 'off',
     'import/no-unresolved': 'off',
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error',
     'react/jsx-filename-extension': [1, { extensions: ['.ts', '.tsx'] }],
   },
 };
