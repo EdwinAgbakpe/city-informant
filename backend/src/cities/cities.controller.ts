@@ -6,10 +6,12 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { CitiesService } from './cities.service';
 import { CreateCityDto } from './dto/create-city.dto';
 import { UpdateCityDto } from './dto/update-city.dto';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 @Controller('cities')
 export class CitiesController {
@@ -20,6 +22,7 @@ export class CitiesController {
    * @param createCityDto create city document type object
    * @returns
    */
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() createCityDto: CreateCityDto) {
     return this.citiesService.create(createCityDto);
@@ -29,6 +32,7 @@ export class CitiesController {
    * Retrieve all City Documents saved
    * @returns List of City Documents
    */
+  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll() {
     return this.citiesService.findAll();
@@ -50,6 +54,7 @@ export class CitiesController {
    * @param updateCityDto update city document type object
    * @returns
    */
+  @UseGuards(JwtAuthGuard)
   @Patch(':name')
   async update(
     @Param('name') name: string,
@@ -63,6 +68,7 @@ export class CitiesController {
    * @param name name of city
    * @returns
    */
+  @UseGuards(JwtAuthGuard)
   @Delete(':name')
   remove(@Param('name') name: string) {
     return this.citiesService.remove(name);
