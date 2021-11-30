@@ -32,7 +32,6 @@ export class CitiesController {
    * Retrieve all City Documents saved
    * @returns List of City Documents
    */
-  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll() {
     return this.citiesService.findAll();
@@ -43,8 +42,10 @@ export class CitiesController {
    * @param name name of city
    * @returns city document
    */
+  @UseGuards(JwtAuthGuard)
   @Get(':name')
   async findOne(@Param('name') name: string) {
+    console.log(`${name} searched`);
     return this.citiesService.findOne(name);
   }
 
