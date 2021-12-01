@@ -1,4 +1,4 @@
-import { RegisterView } from './Register';
+import { RegisterView } from './RegisterView';
 
 export const RegisterContainer = function () {
   return (

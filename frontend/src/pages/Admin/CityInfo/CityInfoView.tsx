@@ -1,9 +1,10 @@
-import Layout from '@components/Layout';
+import Layout from '@app/components/Layout';
+import CityForm from '../components/CityForm';
 
 export const CityInfoView = function () {
   return (
-    <Layout who="admin">
-      <div />
+    <Layout isAdmin isProtected>
+      <CityForm isAdd={false} />
     </Layout>
 
   );

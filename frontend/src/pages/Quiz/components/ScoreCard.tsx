@@ -11,7 +11,7 @@ export const ScoreCard = function ({
   correct, total, onPlay, onQuit,
 }:IScoreCard) {
   return (
-    <div id="scoreCard" className="w-1/3 bg-white rounded-xl shadow-lg p-8 flex flex-wrap flex-col content-center space-y-12">
+    <div id="scoreCard" className=" w-full md:w-2/3 xl:w-1/3 bg-white rounded-xl shadow-lg p-8 flex flex-wrap flex-col content-center space-y-12">
       <div className="flex flex-col content-center space-y-4">
         <h4 className="text-center font-hand text-3xl text-blue">
           {correct < 4 ? 'Damn, that bad huh...' : correct < 7 ? 'Not bad!' : correct < 10 ? 'Great Job!' : 'Did you cheat?'}
@@ -28,7 +28,7 @@ export const ScoreCard = function ({
           right!
         </h3>
       </div>
-      <div className="flex flex-wrap flex-row space-x-12">
+      <div className="flex flex-wrap flex-row gap-2 justify-center">
         <Button
           text="Play"
           isPrimary

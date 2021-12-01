@@ -1,12 +1,15 @@
+/* eslint-disable no-alert */
 import { NavBarView } from './NavBarView';
 
 interface INavContainer{
-  type: string,
+  isAdmin: boolean,
+  isProtected: boolean,
 }
-export const NavBarContainer = function ({ type }: INavContainer) {
+export const NavBarContainer = function ({ isAdmin, isProtected }: INavContainer) {
+  const onLogout = () => { alert('Logout'); };
   return (
     <div id="navbar">
-      <NavBarView to={type === 'admin' ? '/admin/' : '/'} />
+      <NavBarView isAdmin={isAdmin} isProtected={isProtected} onLogout={onLogout} />
     </div>
   );
 };

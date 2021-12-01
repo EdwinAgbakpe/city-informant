@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import Layout from '@components/Layout';
+import Layout from '@app/components/Layout';
 import QACard from './components/QACard';
 import { ScoreCard } from './components/ScoreCard';
 
-interface iQuizView{
+interface IQuizView{
   showScore: boolean;
   totalQuestions: number,
   questionNumber: number,
@@ -23,9 +23,9 @@ export const QuizView = function ({
   handleAnswer,
   handlePlay,
   handleQuit,
-}: iQuizView) {
+}: IQuizView) {
   return (
-    <Layout who="user">
+    <Layout isAdmin={false} isProtected={false}>
       <div className="flex justify-center">
         {showScore
           ? (

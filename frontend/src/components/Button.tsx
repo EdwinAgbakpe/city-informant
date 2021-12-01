@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-interface iButton{
+interface IButton{
   isPrimary: boolean;
   isCancel: boolean;
   text: string;
@@ -8,7 +8,7 @@ interface iButton{
 
 export const Button = function ({
   isPrimary, isCancel, text, onClick,
-}: iButton) {
+}: IButton) {
   return (
     <div>
       <button

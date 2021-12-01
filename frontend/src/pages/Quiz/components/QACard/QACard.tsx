@@ -13,7 +13,7 @@ export const QACard = function ({
   question, answerList, handleAnswer, questionNumber, totalQuestions,
 }: iQACard) {
   return (
-    <div id="quizCard" className="w-2/3 bg-white rounded-xl shadow-lg p-8 grid grid-cols-2 gap-x-12">
+    <div id="quizCard" className="w-full lg:w-2/3 bg-white rounded-xl shadow-lg p-8 flex flex-wrap justify-center gap-x-24 gap-y-3">
       <div id="questionSection" className="flex flex-wrap flex-col space-y-8">
         <h3>
           <span className="text-7xl text-blue">
@@ -32,7 +32,7 @@ export const QACard = function ({
         </h3>
         <p className="text-3xl font-light">{question}</p>
       </div>
-      <div id="answersSection" className="flex flex-wrap flex-col space-y-12">
+      <div id="answersSection" className="flex flex-wrap flex-grow flex-col place-content-center gap-2">
         {answerList.map((answer, index) => (
           <AnswerButton
             key={index}

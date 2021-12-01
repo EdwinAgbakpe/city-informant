@@ -16,7 +16,7 @@ export const QuizContainer = function () {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const retrieveData = async () => {
+    const retrieveData = () => {
       getCities().then(
         (res:any) => {
           setCities(res);
@@ -46,7 +46,7 @@ export const QuizContainer = function () {
   };
 
   const handlePlay = () => {
-    navigate('/quiz');
+    window.location.reload();
   };
 
   const handleQuit = () => {

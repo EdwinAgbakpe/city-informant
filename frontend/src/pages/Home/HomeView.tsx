@@ -1,4 +1,4 @@
-import Layout from '@components/Layout';
+import Layout from '@app/components/Layout';
 import Logo from '@assets/City.svg';
 import { Button } from '@components/Button';
 
@@ -10,7 +10,7 @@ interface IHome{
 const HomeView = function ({ title, handlePlay }: IHome) {
   console.log(title);
   return (
-    <Layout who="user">
+    <Layout isAdmin={false} isProtected={false}>
       <div className="flex flex-wrap flex-col content-center space-y-5">
         <img src={Logo} alt="Logo" className="h-32 object-center" />
         <h1 className="font-hand text-6xl text-green py-2 text-center">City Informant</h1>

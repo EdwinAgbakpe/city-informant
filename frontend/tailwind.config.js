@@ -11,6 +11,9 @@ module.exports = {
         black: '#1e1e24',
         silver: '#aeaeb9',
       },
+      maxWidth: {
+        content: 'max-content',
+      },
     },
     fontFamily: {
       sans: 'Josefin\\ Sans',

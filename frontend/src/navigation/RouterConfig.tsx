@@ -25,7 +25,7 @@ export const RouterConfig = function () {
         <Route path={login} element={<Login />} />
         <Route path={register} element={<Register />} />
         <Route path={dashboard} element={<Dashboard />} />
-        <Route path={cityInfo} element={<CityInfo />} />
+        <Route path={`${cityInfo}:name`} element={<CityInfo />} />
         <Route path={addCity} element={<AddCity />} />
       </Routes>
     </div>
