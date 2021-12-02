@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 export interface ICity{
-  _id: string;
+  _id?: string;
   name: string,
   name_native: string,
   country: string,

@@ -1,30 +1,35 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable camelcase */
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import getCities from '@services/Cities';
 import createQuestions from '@services/Questions';
+import { getCities } from '@redux/Actions/citiesActions';
 import { ICity } from '@interfaces/ICity';
 import { IQAObject } from '@interfaces/IQAObject';
+import { connect } from 'react-redux';
 import { QuizView } from './QuizView';
 
-export const QuizContainer = function () {
-  const [cities, setCities] = useState<ICity[]>();
+interface IDashboardContainer{
+  UI?: any,
+  cities?: ICity[],
+  dispatch?: any,
+}
+
+const QuizContainer = function ({ UI, cities, dispatch }: IDashboardContainer) {
   const [QAList, setQAList] = useState<IQAObject[]>();
+  const [errors, setErrors] = useState([] as any[]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const retrieveData = () => {
-      getCities().then(
-        (res:any) => {
-          setCities(res);
-        },
-      );
-    };
-    retrieveData();
-  }, []);
+    dispatch(getCities())
+      .catch((err:any) => console.log(err));
+    if (UI.errors) {
+      setErrors(UI.errors);
+    }
+  }, [UI]);
   useDidMountEffect(() => {
     console.log('Cities updated', cities);
     setQAList(createQuestions(cities as ICity[]));
@@ -58,6 +63,7 @@ export const QuizContainer = function () {
       {QAList && (
       <QuizView
         showScore={showScore}
+        errors={errors}
         totalQuestions={QAList.length}
         questionNumber={currentQuestion + 1}
         score={score}
@@ -79,3 +85,11 @@ const useDidMountEffect = (func:any, deps:any) => {
     else didMount.current = true;
   }, deps);
 };
+
+const mapStateToProps = (state: any) => ({
+  cities: state.cities,
+  UI: state.UI,
+});
+
+const connectedQuizContainer = connect(mapStateToProps)(QuizContainer);
+export { connectedQuizContainer as QuizContainer };

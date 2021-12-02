@@ -7,12 +7,21 @@ import { CityCard } from './components/CityCard';
 
 interface IDashboardView{
   cities: ICity[],
+  errors: any[],
   onAdd: () => void,
 }
-export const DashboardView = function ({ cities, onAdd }: IDashboardView) {
+export const DashboardView = function ({ cities, onAdd, errors }: IDashboardView) {
+  console.log(cities);
   return (
     <Layout isAdmin isProtected>
       <div className="flex flex-wrap flex-col content-center space-y-3">
+        <div className="space-y-2">
+          {errors.map((err, index) => (
+            <div className="text-red font-light text-center" key={index}>
+              {err}
+            </div>
+          ))}
+        </div>
         <img src={Logo} alt="Logo" className="h-24 object-center" />
         <h1 className="font-hand text-4xl text-green py-2 text-center">City Informant</h1>
         <h2 className="font-hand text-2xl text-blue py-2 text-center">Admin Dashboard</h2>

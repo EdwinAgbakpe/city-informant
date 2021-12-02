@@ -7,18 +7,31 @@ import { TextBox } from '../TextBox';
 
 interface IAuthFormView{
   onChange: (e:any)=>void,
-  onSubmit: ()=>void,
+  onSubmit: (e:any)=>void,
+  errors: Error[],
   form: any,
   isRegister: boolean,
 }
 
 export const AuthFormView = function ({
-  form, onChange, isRegister, onSubmit,
+  form, onChange, isRegister, onSubmit, errors,
 }: IAuthFormView) {
   return (
     <div className="flex justify-center">
       <Form title={isRegister ? 'Register' : 'Login'}>
         <div className="space-y-6">
+          <div className="space-y-2">
+            {typeof errors.length !== 'undefined' ? errors.map((err, index) => (
+              <div className="text-red font-light text-center" key={index}>
+                {err.message}
+              </div>
+            ))
+              : (
+                <div className="text-red font-light text-center">
+                  {/* {errors.message} */}
+                </div>
+              )}
+          </div>
           <div className="space-y-3">
             <TextBox
               type="text"

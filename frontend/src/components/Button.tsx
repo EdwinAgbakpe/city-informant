@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-nested-ternary */
 interface IButton{
   isPrimary: boolean;
   isCancel: boolean;
   text: string;
-  onClick: () => void;
+  onClick: (() => void) | ((e:any) => void);
 }
 
 export const Button = function ({

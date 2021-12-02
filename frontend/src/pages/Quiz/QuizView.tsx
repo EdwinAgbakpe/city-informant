@@ -8,6 +8,7 @@ interface IQuizView{
   totalQuestions: number,
   questionNumber: number,
   score: number,
+  errors: any[],
   QAObject: {question:string, answerList:{answerText: string | number, isCorrect: boolean}[]},
   handleAnswer: (isCorrect: boolean) => void,
   handlePlay: () => void,
@@ -19,6 +20,7 @@ export const QuizView = function ({
   totalQuestions,
   questionNumber,
   score,
+  errors,
   QAObject,
   handleAnswer,
   handlePlay,
@@ -27,6 +29,13 @@ export const QuizView = function ({
   return (
     <Layout isAdmin={false} isProtected={false}>
       <div className="flex justify-center">
+        <div className="space-y-2">
+          {errors.map((err, index) => (
+            <div className="text-red font-light text-center" key={index}>
+              {err}
+            </div>
+          ))}
+        </div>
         {showScore
           ? (
             <ScoreCard

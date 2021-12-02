@@ -10,12 +10,13 @@ import { LandmarkItem } from './LandmarkItem';
 
 interface ICityFormView{
   onChange: (e:any)=>void,
-  onSubmit: ()=>void,
+  onSubmit: (e:any)=>void,
   form: any,
   landmarks: string[],
+  errors: any[],
   isAdd: boolean,
-  onDelete: ()=>void,
-  onAddLandmark: ()=>void,
+  onDelete: (e:any)=>void,
+  onAddLandmark: (e:any)=>void,
   onRemoveLandmark: (e:any)=>void,
 }
 
@@ -23,6 +24,7 @@ export const CityFormView = function ({
   onChange,
   onSubmit,
   form,
+  errors,
   landmarks,
   isAdd,
   onDelete,
@@ -33,6 +35,13 @@ export const CityFormView = function ({
     <div className="flex justify-center">
       <Form title={isAdd ? 'Add City' : 'City Information'}>
         <div className="space-y-6">
+          {/* <div className="space-y-2">
+            {errors.map((err, index) => (
+              <div className="text-red font-light text-center" key={index}>
+                {err}
+              </div>
+            ))}
+          </div> */}
           <div className="space-y-3">
             <TextBox
               type="text"

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Logo from '@assets/City.svg';
 import { NavLink } from 'react-router-dom';
 import { Button } from '@components/Button';
@@ -6,10 +7,14 @@ import { root, dashboard } from '@navigation/Constants';
 interface INav{
   isAdmin: boolean,
   isProtected: boolean,
-  onLogout: () => void,
+  onLogout: (e:any) => void,
+  errors: any,
 
 }
-export const NavBarView = function ({ isAdmin, isProtected, onLogout }:INav) {
+export const NavBarView = function ({
+  isAdmin, isProtected, onLogout, errors,
+}:INav) {
+  console.log(errors);
   return (
     <div className="flex flex-wrap justify-between py-4 px-8 gap-3">
       <NavLink

@@ -15,6 +15,7 @@ import CityInfo from '@pages/Admin/CityInfo';
 import Dashboard from '@pages/Admin/Dashboard';
 import Login from '@pages/Admin/Login';
 import Register from '@pages/Admin/Register';
+import { PrivateRoute } from './PrivateRoute';
 
 export const RouterConfig = function () {
   return (
@@ -24,9 +25,11 @@ export const RouterConfig = function () {
         <Route path={quiz} element={<Quiz />} />
         <Route path={login} element={<Login />} />
         <Route path={register} element={<Register />} />
-        <Route path={dashboard} element={<Dashboard />} />
-        <Route path={`${cityInfo}:name`} element={<CityInfo />} />
-        <Route path={addCity} element={<AddCity />} />
+        <Route path={dashboard} element={<PrivateRoute />}>
+          <Route path={dashboard} element={<Dashboard />} />
+          <Route path={`${cityInfo}:name`} element={<CityInfo />} />
+          <Route path={addCity} element={<AddCity />} />
+        </Route>
       </Routes>
     </div>
   );
