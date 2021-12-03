@@ -1,6 +1,5 @@
 import { IQAObject } from '@interfaces/IQAObject';
 import { ICity } from '@interfaces/ICity';
-/* eslint-disable no-plusplus */
 import { createQAObject } from './createQAObject';
 
 export const createQuestions = function (data: ICity[]) {

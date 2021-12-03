@@ -96,8 +96,8 @@ const CityFormContainer = function ({
     if (!formData.continent.match(/\p{L}+/u)) throw new Error('Invalid Continent');
     if (!formData.founded.toString().match(/[1-9][0-9]*/)) throw new Error('Invalid Founded');
     if (!formData.population.toString().match(/[1-9][0-9]*/)) throw new Error('Invalid Population');
-    if (!formData.longitude.toString().match(/^-?[1-9][0-9]*.[0-9]+$/)) throw new Error('Invalid Longitude');
-    if (!formData.latitude.toString().match(/^-?[1-9][0-9]*.[0-9]+$/)) throw new Error('Invalid Latitude');
+    if (!formData.longitude.toString().match(/^-?[0-9]*.[0-9]+$/)) throw new Error('Invalid Longitude');
+    if (!formData.latitude.toString().match(/^-?[0-9]*.[0-9]+$/)) throw new Error('Invalid Latitude');
   };
 
   const onChange = (e:any) => {

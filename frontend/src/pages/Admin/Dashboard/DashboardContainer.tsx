@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-// import { ICity } from '@interfaces/ICity';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { addCity } from '@navigation/Constants';

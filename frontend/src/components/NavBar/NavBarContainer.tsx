@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable no-alert */
 import { login } from '@navigation/Constants';
 import { logoutUser } from '@redux/Actions/userActions';
 import { useState, useEffect } from 'react';
@@ -13,6 +12,7 @@ interface INavContainer{
   UI?: any,
   dispatch?: any,
 }
+
 const NavBarContainer = function ({
   isAdmin, isProtected, UI, dispatch,
 }: INavContainer) {
@@ -24,6 +24,7 @@ const NavBarContainer = function ({
       setErrors(UI.errors);
     }
   }, [UI]);
+
   const onLogout = (e:any) => {
     e.preventDefault();
     try {
@@ -35,6 +36,7 @@ const NavBarContainer = function ({
       console.log('error');
     }
   };
+
   return (
     <div id="navbar">
       <NavBarView

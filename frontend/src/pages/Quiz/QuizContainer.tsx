@@ -1,5 +1,4 @@
 /* eslint-disable react/require-default-props */
-/* eslint-disable camelcase */
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import createQuestions from '@services/Questions';
@@ -30,6 +29,7 @@ const QuizContainer = function ({ UI, cities, dispatch }: IDashboardContainer) {
       setErrors(UI.errors);
     }
   }, [UI]);
+
   useDidMountEffect(() => {
     console.log('Cities updated', cities);
     setQAList(createQuestions(cities as ICity[]));
@@ -40,7 +40,6 @@ const QuizContainer = function ({ UI, cities, dispatch }: IDashboardContainer) {
       if (isCorrect) {
         setScore(score + 1);
       }
-
       const nextQuestion = currentQuestion + 1;
       if (nextQuestion < QAList.length) {
         setCurrentQuestion(nextQuestion);

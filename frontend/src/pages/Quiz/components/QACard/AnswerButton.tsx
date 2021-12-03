@@ -4,6 +4,7 @@ interface iButton{
   isCorrect: boolean,
   onClick: (isCorrect: boolean) => void,
 }
+
 export const AnswerButton = function ({ text, isCorrect, onClick }: iButton) {
   return (
     <button

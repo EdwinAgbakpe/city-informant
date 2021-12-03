@@ -1,4 +1,3 @@
-/* eslint-disable no-plusplus */
 /* eslint-disable camelcase */
 import { startCase } from 'lodash';
 import { ICity } from '@interfaces/ICity';

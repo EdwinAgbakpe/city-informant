@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import { ReactChild, ReactChildren } from 'react';
 import { LayoutView } from './LayoutView';
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/require-default-props */
 interface IIconButton{
   icon: any,
   onClick: any,
@@ -18,7 +17,6 @@ export const IconButton = function ({
         <div className="h-8 w-8 text-center">
           <div
             className={`${isPrimary ? 'p-1 bg-blue rounded-full text-paper' : 'text-blue'}`}
-
           >
             {icon}
           </div>

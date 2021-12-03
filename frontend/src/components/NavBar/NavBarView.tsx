@@ -27,6 +27,5 @@ export const NavBarView = function ({
       </NavLink>
       {isAdmin && isProtected && (<Button isPrimary isCancel text="Logout" onClick={onLogout} />)}
     </div>
-
   );
 };

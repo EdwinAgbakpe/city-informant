@@ -50,6 +50,7 @@ module.exports = {
     'react/jsx-no-bind': 'off',
     'global-require': 'off',
     'func-names': 'off',
+    'no-plusplus': 'off',
     'import/no-unresolved': 'off',
     'jest/no-disabled-tests': 'warn',
     'jest/no-focused-tests': 'error',

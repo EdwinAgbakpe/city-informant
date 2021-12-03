@@ -1,4 +1,3 @@
-// in useActions.ts file
 import axios from 'axios';
 import {
   setAuthenticated, setUnauthenticated, setErrors, clearErrors,
@@ -9,8 +8,7 @@ export const loginUser = (userData: any) => (dispatch: any) => {
   return (axios.post('http://localhost:3000/auth/login', JSON.stringify(userData))
     .then((res) => {
       const token = `Bearer ${res.data.access_token}`;
-      localStorage.setItem('token', token); // setting token to local storage
-      // setting authorize token to header in axios
+      localStorage.setItem('token', token);
       axios.defaults.headers.common.Authorization = token;
       dispatch(setAuthenticated());
       dispatch(clearErrors());
