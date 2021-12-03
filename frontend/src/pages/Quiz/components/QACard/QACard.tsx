@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { AnswerButton } from './AnswerButton';
+import AnswerButton from './AnswerButton';
 
 interface iQACard{
   questionNumber: number,

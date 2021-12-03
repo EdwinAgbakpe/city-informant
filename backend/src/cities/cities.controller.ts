@@ -45,7 +45,6 @@ export class CitiesController {
   @UseGuards(JwtAuthGuard)
   @Get(':name')
   async findOne(@Param('name') name: string) {
-    console.log(`${name} searched`);
     return this.citiesService.findOne(name);
   }
 

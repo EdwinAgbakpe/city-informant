@@ -15,7 +15,11 @@ export const Button = function ({
       <button
         type="button"
         onClick={onClick}
-        className={`h-12 w-32 text-paper text-2xl font-bold rounded-xl ${ isPrimary && isCancel ? 'bg-red' : isPrimary ? 'bg-green' : 'border-red'}`}
+        className={
+          `h-12 w-32 text-paper text-2xl font-bold rounded-xl 
+            transition transform duration-500 ease-in-out hover:scale-105 
+            ${ isPrimary && isCancel ? 'bg-red' : isPrimary ? 'bg-green' : 'border-red'}`
+          }
       >
         {text}
       </button>

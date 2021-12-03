@@ -57,10 +57,9 @@ const AuthFormContainer = function ({ isRegister, UI, dispatch }: IAuthFormConta
           .then(() => navigate(dashboard))
           .catch((err:any) => console.log(err));
       }
-      console.log(userData);
     } catch (err:any) {
       setErrors((prevErrors):Error[] => ([...prevErrors, err]));
-      console.log('error');
+      console.log(err);
     }
   };
 
