@@ -1,20 +1,30 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthService } from './auth/auth.service';
+// import { UsersService } from './users/users.service';
 
 describe('AppController', () => {
-  let appController: AppController;
+  let controller: AppController;
 
   beforeEach(async () => {
     const app: TestingModule = await Test.createTestingModule({
       controllers: [AppController],
-      providers: [AppService],
+      providers: [
+        AppService,
+        {
+          provide: AuthService,
+          useValue: {
+            registerUserAsync: jest.fn(), // <--here
+          },
+        },
+      ],
     }).compile();
 
-    appController = app.get<AppController>(AppController);
+    controller = app.get<AppController>(AppController);
+  });
 
-    it('should be defined', () => {
-      expect(appController).toBeDefined();
-    });
+  it('should be defined', () => {
+    expect(controller).toBeDefined();
   });
 });

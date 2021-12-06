@@ -5,8 +5,9 @@ import { AppModule } from './../src/app.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
+  let token;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -15,10 +16,35 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  beforeEach((done) => {
+    request(app.getHttpServer())
+      .post('/auth/login')
+      .send({
+        username: 'admin',
+        password: 'admin1',
+      })
+      .end((err, res) => {
+        token = res.body.access_token;
+        done();
+      });
+  });
+
+  it('/cities (GET) should return 200', () => {
+    return request(app.getHttpServer()).get('/cities').expect(200);
+  });
+
+  it('/cities/Lagos (GET) should return unauthorized', () => {
+    return request(app.getHttpServer()).get('/cities/Lagos').expect(401);
+  });
+
+  it('/cities/Lagos (GET) should return 200', () => {
     return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+      .get('/cities/Lagos')
+      .set('Authorization', `Bearer ${token}`)
+      .expect(200);
+  });
+
+  afterAll(async () => {
+    await app.close();
   });
 });

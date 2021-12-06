@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { CitiesController } from './cities.controller';
 import { CitiesService } from './cities.service';
@@ -15,14 +16,21 @@ describe('CitiesController', () => {
     findAll: jest.fn(() => {
       return [];
     }),
-    // findOne: jest.fn((name) => {
-    //   return {
-    //   }
-    // }),
+    findOne: jest.fn((name) => {
+      return {
+        id: Date.now(),
+        name: name,
+      };
+    }),
     update: jest.fn((name, dto) => {
       return {
         name: name,
         ...dto,
+      };
+    }),
+    remove: jest.fn((name) => {
+      return {
+        deletedCount: 1,
       };
     }),
   };
@@ -61,14 +69,25 @@ describe('CitiesController', () => {
     });
   });
 
-  it('return all cities', () => {
+  it('it should return all cities', () => {
     expect(controller.findAll()).resolves.toEqual([]);
+  });
+  it('it should return city with name test', () => {
+    expect(controller.findOne('test')).resolves.toEqual({
+      id: expect.any(Number),
+      name: 'test',
+    });
   });
   it('it should update one city', () => {
     const dto = { name_native: 'retest' };
     expect(controller.update('test', dto)).resolves.toEqual({
       name: 'test',
       ...dto,
+    });
+  });
+  it('it should delete one city with name test', () => {
+    expect(controller.remove('test')).toEqual({
+      deletedCount: 1,
     });
   });
 });
