@@ -34,3 +34,8 @@ Contains all the frontend code for both the user and admin side.
 - Use URL localhost:3001/admin
 - If this is the first time, click on register, and create a new admin user.
 - Enjoy!
+
+#### Reaching the backend API documentation
+- After starting the backend, go to localhost:3000/admin
+
+##### Testing is WIP
