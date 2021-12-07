@@ -3,12 +3,10 @@ import Logo from '@assets/City.svg';
 import { Button } from '@components/Button';
 
 interface IHome{
-  title: string,
   handlePlay: ()=>void,
 }
 
-const HomeView = function ({ title, handlePlay }: IHome) {
-  console.log(title);
+const HomeView = function ({ handlePlay }: IHome) {
   return (
     <Layout isAdmin={false} isProtected={false}>
       <div className="flex flex-wrap flex-col content-center space-y-5">

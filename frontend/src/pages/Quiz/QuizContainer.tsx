@@ -31,7 +31,7 @@ const QuizContainer = function ({ UI, cities, dispatch }: IDashboardContainer) {
   }, [UI]);
 
   useDidMountEffect(() => {
-    console.log('Cities updated', cities);
+    // console.log('Cities updated', cities);
     setQAList(createQuestions(cities as ICity[]));
   }, [cities]);
 

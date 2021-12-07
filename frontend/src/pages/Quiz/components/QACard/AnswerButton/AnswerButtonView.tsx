@@ -10,7 +10,6 @@ interface IButtonView{
 export const AnswerButtonView = function ({
   text, isCorrect, onClick, isClicked,
 }: IButtonView) {
-  console.log('clicked', isCorrect, isClicked);
   return (
     <button
       type="button"

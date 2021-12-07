@@ -8,7 +8,7 @@ export const HomeContainer = function () {
   };
   return (
     <div>
-      <HomeView title="Home" handlePlay={handlePlay} />
+      <HomeView handlePlay={handlePlay} />
     </div>
   );
 };
